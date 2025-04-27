@@ -7,9 +7,6 @@ import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import cn.hutool.log.Log;
 import cn.hutool.log.LogFactory;
-import com.ruogu.agent.config.RuoguAiProperties;
-
-import static com.ruogu.agent.demo.invoke.util.PropertiesReadUtil.loadConfig;
 
 /**
  * @author ruogu
@@ -20,6 +17,9 @@ public class HttpAiInvoke {
 
     // API端点配置
     private static final String API_URL = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
+
+    // TODO 替换为实际的API密钥
+    private static final String API_KEY = "";
 
     public static void main(String[] args) {
         try {
@@ -38,13 +38,11 @@ public class HttpAiInvoke {
      */
     public static String sendAiRequest(String userQuestion) {
 
-        RuoguAiProperties.DashScopeProperties scopeProperties = loadConfig();
-
         // 构建请求体
-        JSONObject requestBody = buildRequestBody(userQuestion, scopeProperties.getModel());
+        JSONObject requestBody = buildRequestBody(userQuestion, "qwen-plus");
         // 发送请求
         HttpResponse response = HttpRequest.post(API_URL)
-                .header("Authorization", "Bearer " + scopeProperties.getApiKey())
+                .header("Authorization", "Bearer " + API_KEY)
                 .header("Content-Type", "application/json")
                 .body(requestBody.toString())
                 .timeout(5000)
