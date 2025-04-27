@@ -1,0 +1,13 @@
+package com.ruogu.agent;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class RuoguAiAgentApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

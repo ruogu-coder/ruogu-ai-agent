@@ -1,0 +1,10 @@
+server:
+  port: 48080
+
+ruogu:
+  ai:
+    dash-scope:
+      api-key: xxx # TODO 填写你的api-key
+      enable: true
+      # https://help.aliyun.com/zh/model-studio/getting-started/models
+      model: qwen-plus
