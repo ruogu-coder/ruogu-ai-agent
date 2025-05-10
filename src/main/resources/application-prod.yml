@@ -12,3 +12,8 @@ spring:
       base-url: http://localhost:11434
       chat:
         model: deepseek-r1:1.5b
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ruogu_ai_agent
+    username: root
+    password: 123456

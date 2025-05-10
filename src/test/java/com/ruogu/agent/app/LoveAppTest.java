@@ -7,8 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * @author ruogu
  * @date 2025/4/28 21:22
@@ -35,4 +33,22 @@ class LoveAppTest {
         answer = loveApp.doChat(message, chatId);
         Assertions.assertNotNull(answer);
     }
+
+    @Test
+    void doChatWithReport() {
+        String chatId = UUID.randomUUID().toString();
+        // 第一轮
+        String message = "你好，我是程序员鱼皮，我想让另一半（编程导航）更爱我，但我不知道该怎么做";
+        LoveApp.LoveReport loveReport = loveApp.doChatWithReport(message, chatId);
+        Assertions.assertNotNull(loveReport);
+    }
+
+    @Test
+    void testChatWithExistChatId() {
+        String chatId = "cbd3900f-1780-435b-ba49-945bd756376a";
+        // 第一轮
+        String message = "我记得我和你说过我叫什么 你还知道吗?";
+        loveApp.doChat(message, chatId);
+    }
+
 }
